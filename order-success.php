@@ -1,0 +1,3 @@
+<?php require_once __DIR__.'/includes/bootstrap.php';$id=(int)($_GET['id']??0);$s=$pdo->prepare('SELECT * FROM orders WHERE id=?');$s->execute([$id]);$o=$s->fetch();if(!$o){http_response_code(404);exit('অর্ডার পাওয়া যায়নি');}$page_title='Order Received';require __DIR__.'/includes/header.php';?>
+<div class="card"><h1>আপনার অর্ডার গ্রহণ করা হয়েছে! ❤️</h1><p>অর্ডার নম্বর: <b>#<?= $id ?></b></p><p>আমাদের প্রতিনিধি পণ্যের দাম ও অর্ডার নিশ্চিত করতে যোগাযোগ করবেন।</p><a class="btn" target="_blank" rel="noopener" href="<?= e($_GET['wa']??('https://wa.me/'.WHATSAPP_NUMBER)) ?>">WhatsApp-এ অর্ডার পাঠান</a> <a class="btn alt" href="<?= e(url('index.php')) ?>">শপিং চালিয়ে যান</a></div>
+<?php require __DIR__.'/includes/footer.php'; ?>

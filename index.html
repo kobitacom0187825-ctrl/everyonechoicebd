@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f8dce5">
+<title>Everyone Choice BD | Baby & Mom Care</title>
+<style>
+:root{--pink:#e99bb2;--pink2:#fff0f4;--mint:#e4f3eb;--cream:#fffaf1;--ink:#352d31;--muted:#766b70;--line:#f0e4e8}
+*{box-sizing:border-box}body{margin:0;color:var(--ink);font-family:system-ui,-apple-system,"Noto Sans Bengali",sans-serif;background:#fff}
+.top{background:#f9e4eb;text-align:center;padding:8px;font-size:13px}
+header{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line);z-index:5}
+.nav{max-width:1160px;margin:auto;padding:14px 20px;display:flex;align-items:center;gap:18px}
+.logo{font-size:22px;font-weight:850;color:#bd6684;white-space:nowrap}.logo small{display:block;font-size:10px;letter-spacing:1.5px;color:var(--muted)}
+.search{display:flex;flex:1;gap:8px}.search input{width:100%;padding:11px 14px;border:1px solid var(--line);border-radius:999px;outline:none}
+button{font:inherit;cursor:pointer}.btn{border:0;border-radius:999px;padding:11px 17px;background:var(--pink);color:white;font-weight:700}.cart{border:0;white-space:nowrap;background:var(--pink2);color:#9e4d69;padding:10px 14px;border-radius:999px;font-weight:700}
+main{max-width:1160px;margin:auto;padding:24px 20px 60px}
+.hero{border-radius:26px;padding:42px;background:linear-gradient(110deg,#fff0f4,#e8f5ee);display:grid;grid-template-columns:1.2fr .8fr;align-items:center;gap:20px}
+.eyebrow{color:#b65f7d;font-weight:800;font-size:13px;letter-spacing:1px}.hero h1{font-size:clamp(30px,5vw,52px);line-height:1.2;margin:10px 0}.hero p{color:var(--muted);line-height:1.8;max-width:520px}.hero-art{text-align:center;font-size:90px}
+.section-head{margin:34px 0 16px}.section-head h2{margin:0;font-size:24px}.section-head p{color:var(--muted);font-size:13px;margin:5px 0}
+.categories{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.cat{background:var(--cream);border:1px solid var(--line);padding:18px 12px;border-radius:18px;text-align:center}.cat span{display:block;font-size:30px;margin-bottom:7px}
+.toolbar{display:flex;justify-content:space-between;align-items:center;margin:18px 0}.toolbar select{padding:10px;border:1px solid var(--line);border-radius:12px;background:#fff}
+.products{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.product{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#fff;display:flex;flex-direction:column}.pic{height:250px;background:#fff8fa;display:grid;place-items:center;padding:12px}.pic img{width:100%;height:100%;object-fit:contain}.info{padding:15px;display:flex;flex-direction:column;gap:8px;flex:1}.tag{font-size:11px;color:#a45b75;background:var(--pink2);padding:4px 8px;border-radius:999px;width:max-content}.info h3{font-size:16px;margin:0}.price{font-weight:800;color:#a84f70}.info .btn{margin-top:auto;width:100%}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:34px}.feature{padding:18px;border-radius:17px;background:#f7fbf8}.feature b{display:block;margin:7px 0}.feature p{font-size:13px;color:var(--muted);margin:0}
+footer{background:#fff6f8;border-top:1px solid var(--line);padding:28px 20px;color:var(--muted)}.foot{max-width:1160px;margin:auto;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.overlay{position:fixed;inset:0;background:#21151b66;z-index:10;display:none;justify-content:flex-end}.overlay.show{display:flex}.drawer{width:min(430px,100%);background:#fff;height:100%;padding:22px;overflow:auto}.drawer-head{display:flex;justify-content:space-between;align-items:center}.close{border:0;background:#f7edf0;border-radius:50%;width:36px;height:36px}.cart-row{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--line)}.qty button{border:0;background:var(--pink2);padding:4px 9px;border-radius:7px}.total{text-align:right;font-size:20px;font-weight:800;margin:18px 0}
+form{display:grid;gap:10px;margin-top:18px}form input,form textarea{padding:12px;border:1px solid var(--line);border-radius:11px;width:100%}form textarea{min-height:75px}.note{font-size:12px;color:var(--muted);line-height:1.6}
+@media(max-width:800px){.nav{flex-wrap:wrap}.search{order:3;flex-basis:100%}.hero{grid-template-columns:1fr;padding:28px}.products{grid-template-columns:repeat(2,1fr)}.categories{grid-template-columns:repeat(2,1fr)}.features{grid-template-columns:1fr}}
+@media(max-width:480px){main{padding:16px 13px 40px}.products{gap:10px}.pic{height:165px}.info{padding:10px}.logo{font-size:19px}}
+</style></head>
+<body>
+<div class="top">সারা বাংলাদেশে ডেলিভারি • শিশুর যত্নে আপনার বিশ্বস্ত শপ</div>
+<header><div class="nav">
+<a class="logo" href="#">Everyone Choice BD<small>BABY & MOM CARE</small></a>
+<div class="search"><input id="search" placeholder="পণ্য খুঁজুন..."><button class="btn" onclick="renderProducts()">খুঁজুন</button></div>
+<button class="cart" onclick="openCart()">🛒 কার্ট (<span id="cartCount">0</span>)</button>
+</div></header>
+<main>
+<section class="hero"><div><div class="eyebrow">LITTLE THINGS, BIG LOVE</div><h1>আপনার সোনামণির জন্য<br>ভালোবাসার কেনাকাটা 💗</h1>
+<p>শিশুর প্রয়োজনীয় পণ্য ও মা-বেবি কেয়ার আইটেম—সব এক জায়গায়। পছন্দের পণ্য বেছে নিন সহজেই।</p>
+<a class="btn" href="#shop">কেনাকাটা শুরু করুন</a></div><div class="hero-art">🧸 🍼 👶</div></section>
+<div class="section-head"><h2>ক্যাটাগরি অনুযায়ী খুঁজুন</h2><p>আপনার প্রয়োজনীয় পণ্যটি বেছে নিন</p></div>
+<section class="categories">
+<button class="cat" onclick="setCategory('ফিডিং')"><span>🍼</span><b>ফিডিং পণ্য</b></button>
+<button class="cat" onclick="setCategory('পানি বোতল')"><span>🥤</span><b>বেবি বোতল</b></button>
+<button class="cat" onclick="setCategory('মা ও শিশু')"><span>🤱</span><b>মা ও শিশু</b></button>
+<button class="cat" onclick="setCategory('সব')"><span>🛍️</span><b>সব পণ্য</b></button>
+</section>
+<section id="shop"><div class="section-head"><h2>আমাদের পণ্য</h2><p>Everyone Choice BD-এর পণ্যের ছবি</p></div>
+<div class="toolbar"><span id="resultCount" class="note"></span><select id="sort" onchange="renderProducts()"><option value="default">ডিফল্ট সাজানো</option><option value="low">দাম: কম থেকে বেশি</option><option value="high">দাম: বেশি থেকে কম</option></select></div>
+<div class="products" id="products"></div></section>
+<section class="features">
+<div class="feature">🚚<b>সারা বাংলাদেশে ডেলিভারি</b><p>আপনার ঠিকানায় পণ্য পৌঁছে দেওয়ার ব্যবস্থা।</p></div>
+<div class="feature">🛍️<b>সহজ অর্ডার</b><p>পণ্য কার্টে যোগ করে অর্ডারের তথ্য পাঠান।</p></div>
+<div class="feature">💬<b>Facebook-এ যোগাযোগ</b><p><a href="https://www.facebook.com/EveryoneChoiceBD" target="_blank" rel="noopener">Everyone Choice BD Facebook Page</a></p></div>
+</section></main>
+<footer><div class="foot"><div><b style="color:#bd6684">Everyone Choice BD</b><p>শিশুর যত্নে, আপনার পছন্দে।</p></div><div><a href="https://www.facebook.com/EveryoneChoiceBD" target="_blank" rel="noopener">Facebook Page</a><br>ফোন ও ঠিকানা: শিগগিরই যোগ করা হবে</div><div>© <span id="year"></span> Everyone Choice BD</div></div></footer>
+<div class="overlay" id="overlay" onclick="if(event.target===this)closeCart()"><aside class="drawer">
+<div class="drawer-head"><h2>আপনার শপিং কার্ট</h2><button class="close" onclick="closeCart()">✕</button></div><div id="cartItems"></div><div class="total" id="total">মোট: ৳০</div>
+<form id="checkout" onsubmit="placeOrder(event)"><h3>ডেলিভারির তথ্য</h3><input id="customer" required placeholder="আপনার নাম"><input id="phone" required type="tel" placeholder="মোবাইল নম্বর"><input id="address" required placeholder="সম্পূর্ণ ঠিকানা"><textarea id="details" placeholder="অতিরিক্ত নির্দেশনা (ঐচ্ছিক)"></textarea><button class="btn" type="submit">WhatsApp-এ অর্ডার পাঠান</button><p class="note">WhatsApp অর্ডার চালু করতে নিচের কোডে ব্যবসার নম্বর বসাতে হবে।</p></form>
+</aside></div>
+<script>
+const products=[
+{id:1,name:"সিলিকন বেবি প্যাসিফায়ার",cat:"ফিডিং",price:null,img:"assets/pacifier.jpg",tag:"আপলোড করা আসল ছবি"},
+{id:2,name:"কার্টুন ডিজাইনের বেবি ওয়াটার বোতল",cat:"পানি বোতল",price:null,img:"assets/baby-bottle.jpg",tag:"আপলোড করা আসল ছবি"},
+{id:3,name:"ম্যানুয়াল ব্রেস্ট পাম্প",cat:"মা ও শিশু",price:null,img:"assets/manual-breast-pump.jpg",tag:"আপলোড করা আসল ছবি"}
+];
+let cart=JSON.parse(localStorage.getItem("ecbd-cart")||"[]"),activeCategory="সব";
+const money=n=>n==null?"দাম জানতে যোগাযোগ করুন":"৳"+Number(n).toLocaleString("en-US");
+function renderProducts(){let q=document.getElementById("search").value.trim().toLowerCase(),list=products.filter(p=>(activeCategory==="সব"||p.cat===activeCategory)&&(p.name.toLowerCase().includes(q)||p.cat.toLowerCase().includes(q)));let s=document.getElementById("sort").value;if(s==="low")list.sort((a,b)=>(a.price??Infinity)-(b.price??Infinity));if(s==="high")list.sort((a,b)=>(b.price??-1)-(a.price??-1));document.getElementById("resultCount").textContent=list.length+"টি পণ্য";document.getElementById("products").innerHTML=list.map(p=>`<article class="product"><div class="pic"><img src="${p.img}" alt="${p.name}"></div><div class="info"><span class="tag">${p.tag}</span><h3>${p.name}</h3><div class="price">${money(p.price)}</div><button class="btn" onclick="addToCart(${p.id})">কার্টে যোগ করুন</button></div></article>`).join("")||"<p>কোনো পণ্য পাওয়া যায়নি।</p>";}
+function setCategory(c){activeCategory=c;renderProducts();document.getElementById("shop").scrollIntoView({behavior:"smooth"});}
+function save(){localStorage.setItem("ecbd-cart",JSON.stringify(cart));document.getElementById("cartCount").textContent=cart.reduce((s,x)=>s+x.qty,0);}
+function addToCart(id){let x=cart.find(x=>x.id===id);if(x)x.qty++;else cart.push({id,qty:1});save();openCart();}
+function openCart(){renderCart();document.getElementById("overlay").classList.add("show");}function closeCart(){document.getElementById("overlay").classList.remove("show");}
+function renderCart(){let el=document.getElementById("cartItems");if(!cart.length){el.innerHTML="<p>আপনার কার্ট খালি।</p>";document.getElementById("total").textContent="মোট: ৳০";return;}el.innerHTML=cart.map(x=>{let p=products.find(p=>p.id===x.id);return `<div class="cart-row"><div><b>${p.name}</b><br><small>${money(p.price)} × ${x.qty}</small><div class="qty"><button onclick="changeQty(${p.id},-1)">−</button> ${x.qty} <button onclick="changeQty(${p.id},1)">+</button></div></div><b>${p.price==null?"দাম জানতে হবে":money(p.price*x.qty)}</b></div>`}).join("");document.getElementById("total").textContent="মোট: মূল্য নিশ্চিত করতে যোগাযোগ করুন";}
+function changeQty(id,d){let x=cart.find(x=>x.id===id);x.qty+=d;if(x.qty<=0)cart=cart.filter(y=>y.id!==id);save();renderCart();}
+function placeOrder(e){e.preventDefault();if(!cart.length){alert("আপনার কার্ট খালি।");return;}const WA="8801XXXXXXXXX";let lines=cart.map(x=>products.find(p=>p.id===x.id).name+" × "+x.qty);let msg=`নতুন অর্ডার - Everyone Choice BD\nনাম: ${document.getElementById("customer").value}\nফোন: ${document.getElementById("phone").value}\nঠিকানা: ${document.getElementById("address").value}\nপণ্য:\n${lines.join("\n")}\nনোট: ${document.getElementById("details").value}`;if(WA==="8801XXXXXXXXX"){alert("WhatsApp অর্ডার চালু করতে ব্যবসার নম্বর বসাতে হবে।");return;}window.open("https://wa.me/"+WA+"?text="+encodeURIComponent(msg),"_blank");}
+document.getElementById("year").textContent=new Date().getFullYear();document.getElementById("search").addEventListener("input",renderProducts);save();renderProducts();
+</script></body></html>

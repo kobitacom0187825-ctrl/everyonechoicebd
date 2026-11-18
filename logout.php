@@ -1,0 +1,1 @@
+<?php require_once __DIR__.'/../includes/bootstrap.php';unset($_SESSION['admin']);header('Location: '.url('admin/login.php'));exit;
