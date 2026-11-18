@@ -1,0 +1,1 @@
+<?php require_once __DIR__.'/includes/bootstrap.php';$tran=trim($_POST['tran_id']??'');if($tran!=='')$pdo->prepare("UPDATE orders SET payment_status='cancelled' WHERE tran_id=? AND payment_status<>'paid'")->execute([$tran]);header('Location: '.url('payment-result.php?result=cancelled'));exit;
